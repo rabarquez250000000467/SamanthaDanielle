@@ -77,17 +77,24 @@
       line-height: 1.6;
     }
 
-    /* Secret message starts hidden */
+    #preview-text {
+      display: block;
+      color: #64b5f6;
+      text-align: center;
+    }
+
+    /* Secret message styling */
     #full-note {
       display: none;
-      margin-top: 15px;
-      padding-top: 15px;
-      border-top: 1px dashed #333;
       color: #e0e0e0;
     }
 
     #full-note p {
       margin-bottom: 12px;
+    }
+
+    #full-note p:last-child {
+      margin-bottom: 0;
     }
 
     .btn-read {
@@ -102,6 +109,7 @@
       cursor: pointer;
       display: block;
       transition: background-color 0.2s ease;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .btn-read:active {
@@ -138,25 +146,25 @@
       </div>
     </div>
 
-    <button class="btn-read" id="toggle-btn" onclick="revealNote()">
+    <button type="button" class="btn-read" id="toggle-btn" onclick="revealNote()">
       ❤️ Read Birthday Note
     </button>
   </div>
 
   <script>
     function revealNote() {
-      const fullNote = document.getElementById('full-note');
-      const previewText = document.getElementById('preview-text');
-      const btn = document.getElementById('toggle-btn');
+      var fullNote = document.getElementById('full-note');
+      var previewText = document.getElementById('preview-text');
+      var btn = document.getElementById('toggle-btn');
 
       if (fullNote.style.display === 'block') {
         fullNote.style.display = 'none';
         previewText.style.display = 'block';
-        btn.innerText = '❤️ Read Birthday Note';
+        btn.innerHTML = '❤️ Read Birthday Note';
       } else {
         fullNote.style.display = 'block';
         previewText.style.display = 'none';
-        btn.innerText = '🔒 Hide Note';
+        btn.innerHTML = '🔒 Hide Note';
       }
     }
   </script>
