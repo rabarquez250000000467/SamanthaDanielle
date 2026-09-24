@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <!-- This viewport tag makes sure the page scales properly on mobile phones -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Happy Birthday Sammy!</title>
   <style>
-    /* Reset & Base Styles */
+    /* Reset basic styling */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -20,87 +21,102 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      padding: 20px;
+      padding: 16px; /* Optimized padding for small screens */
     }
 
-    /* Main Card Container */
+    /* Card container with full responsiveness */
     .card {
       background-color: #1e1e1e;
-      border: 1px solid #333;
+      border: 1px solid #2d2d2d;
       border-radius: 20px;
-      padding: 40px 30px;
-      max-width: 600px;
+      padding: 30px 20px;
       width: 100%;
+      max-width: 480px; /* Fits desktop cleanly while filling mobile screens */
       text-align: center;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     }
 
-    /* Status Badge */
+    /* Status badge pill */
     .status-badge {
       display: inline-block;
       background-color: #0e8a3a;
       color: #ffffff;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       font-weight: bold;
-      padding: 6px 16px;
+      padding: 6px 14px;
       border-radius: 20px;
-      text-transform: uppercase;
       letter-spacing: 1px;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
     }
 
-    /* Heading Section */
+    /* Heading styling */
     .header-title {
-      font-size: 2.2rem;
+      font-size: 1.8rem;
       color: #e2a98f;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
       line-height: 1.3;
+      word-wrap: break-word;
     }
 
     .header-title .cake {
-      font-size: 2.2rem;
-      margin-right: 10px;
-      vertical-align: middle;
+      font-size: 1.8rem;
+      margin-right: 8px;
     }
 
-    /* Subtitle Text */
+    /* Subtitle text */
     .subtitle {
       color: #a0a0a0;
-      font-size: 0.95rem;
-      line-height: 1.6;
-      margin-bottom: 30px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 24px;
     }
 
-    /* Inner Dark Message Box */
+    /* Dark message box */
     .message-box {
       background-color: #181818;
-      border: 1px solid #2a2a2a;
-      border-radius: 12px;
-      padding: 40px 20px;
+      border: 1px solid #282828;
+      border-radius: 10px;
+      padding: 30px 16px;
       color: #64b5f6;
-      font-size: 0.95rem;
-      margin-bottom: 30px;
-      line-height: 1.5;
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+      line-height: 1.4;
+      word-break: break-word;
     }
 
-    /* Action Button */
+    /* Mobile-ready button */
     .btn-read {
-      display: block;
       width: 100%;
       background-color: #007acc;
       color: #ffffff;
       font-size: 1rem;
       font-weight: bold;
-      padding: 14px 20px;
+      padding: 14px 16px;
       border: none;
       border-radius: 10px;
       cursor: pointer;
-      transition: background-color 0.2s ease;
       text-decoration: none;
+      display: block;
+      transition: background-color 0.2s ease;
     }
 
-    .btn-read:hover {
+    .btn-read:active {
       background-color: #005999;
+    }
+
+    /* Responsive adjustments for narrow mobile screens */
+    @media (max-width: 400px) {
+      .card {
+        padding: 24px 14px;
+      }
+      
+      .header-title {
+        font-size: 1.5rem;
+      }
+
+      .status-badge {
+        font-size: 0.75rem;
+      }
     }
   </style>
 </head>
