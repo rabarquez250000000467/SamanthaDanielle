@@ -2,11 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <!-- This viewport tag makes sure the page scales properly on mobile phones -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Happy Birthday Sammy!</title>
   <style>
-    /* Reset basic styling */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -21,41 +19,37 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      padding: 16px; /* Optimized padding for small screens */
+      padding: 20px 15px;
     }
 
-    /* Card container with full responsiveness */
     .card {
       background-color: #1e1e1e;
       border: 1px solid #2d2d2d;
       border-radius: 20px;
       padding: 30px 20px;
       width: 100%;
-      max-width: 480px; /* Fits desktop cleanly while filling mobile screens */
+      max-width: 500px;
       text-align: center;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
     }
 
-    /* Status badge pill */
     .status-badge {
       display: inline-block;
       background-color: #0e8a3a;
       color: #ffffff;
       font-size: 0.8rem;
       font-weight: bold;
-      padding: 6px 14px;
+      padding: 6px 16px;
       border-radius: 20px;
       letter-spacing: 1px;
       margin-bottom: 20px;
     }
 
-    /* Heading styling */
     .header-title {
       font-size: 1.8rem;
       color: #e2a98f;
       margin-bottom: 16px;
       line-height: 1.3;
-      word-wrap: break-word;
     }
 
     .header-title .cake {
@@ -63,7 +57,6 @@
       margin-right: 8px;
     }
 
-    /* Subtitle text */
     .subtitle {
       color: #a0a0a0;
       font-size: 0.9rem;
@@ -71,20 +64,32 @@
       margin-bottom: 24px;
     }
 
-    /* Dark message box */
+    /* Message Box Container */
     .message-box {
       background-color: #181818;
       border: 1px solid #282828;
-      border-radius: 10px;
-      padding: 30px 16px;
+      border-radius: 12px;
+      padding: 20px 16px;
       color: #64b5f6;
       font-size: 0.9rem;
+      text-align: left;
       margin-bottom: 24px;
-      line-height: 1.4;
-      word-break: break-word;
+      line-height: 1.6;
     }
 
-    /* Mobile-ready button */
+    /* Secret message starts hidden */
+    #full-note {
+      display: none;
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px dashed #333;
+      color: #e0e0e0;
+    }
+
+    #full-note p {
+      margin-bottom: 12px;
+    }
+
     .btn-read {
       width: 100%;
       background-color: #007acc;
@@ -95,28 +100,12 @@
       border: none;
       border-radius: 10px;
       cursor: pointer;
-      text-decoration: none;
       display: block;
       transition: background-color 0.2s ease;
     }
 
     .btn-read:active {
       background-color: #005999;
-    }
-
-    /* Responsive adjustments for narrow mobile screens */
-    @media (max-width: 400px) {
-      .card {
-        padding: 24px 14px;
-      }
-      
-      .header-title {
-        font-size: 1.5rem;
-      }
-
-      .status-badge {
-        font-size: 0.75rem;
-      }
     }
   </style>
 </head>
@@ -136,13 +125,41 @@
     </p>
 
     <div class="message-box">
-      [MESSAGE] Press below to unlock your birthday note...
+      <div id="preview-text">
+        [MESSAGE] Press below to unlock your birthday note...
+      </div>
+
+      <div id="full-note">
+        <p>🌟 Dawg, I'm wishing you a year filled with endless joy, peace, and beautiful moments.</p>
+        <p>💖 I'm glad that you've grown to a such young incredible person and thank you for bringing warmth to everyone around you, also to me.</p>
+        <p>✨ May every line of your life's story be blessed with happiness, success, and good health. That is a reward for being a good person despite the hardships and challenges that you've faced.</p>
+        <p>☕ May your days be bright, your heart be light, and your dreams come true!</p>
+        <p>💖 <strong>HAPPY BIRTHDAY, BIRTHDAY SAMMMYYYY!</strong></p>
+      </div>
     </div>
 
-    <button class="btn-read" onclick="alert('Happy Birthday!')">
+    <button class="btn-read" id="toggle-btn" onclick="revealNote()">
       ❤️ Read Birthday Note
     </button>
   </div>
+
+  <script>
+    function revealNote() {
+      const fullNote = document.getElementById('full-note');
+      const previewText = document.getElementById('preview-text');
+      const btn = document.getElementById('toggle-btn');
+
+      if (fullNote.style.display === 'block') {
+        fullNote.style.display = 'none';
+        previewText.style.display = 'block';
+        btn.innerText = '❤️ Read Birthday Note';
+      } else {
+        fullNote.style.display = 'block';
+        previewText.style.display = 'none';
+        btn.innerText = '🔒 Hide Note';
+      }
+    }
+  </script>
 
 </body>
 </html>
